@@ -476,6 +476,9 @@
         if (!!scope.remoteUrlRequestWithCredentials) {
           params.withCredentials = true;
         }
+        if(scope.remoteUrlRequestHeaders) {
+          params.headers = scope.remoteUrlRequestHeaders;
+        }
         cancelHttpRequest();
         httpCanceller = $q.defer();
         params.timeout = httpCanceller.promise;
@@ -792,6 +795,7 @@
         localSearch: '&',
         remoteUrlRequestFormatter: '=',
         remoteUrlRequestWithCredentials: '@',
+        remoteUrlRequestHeaders: '=',
         remoteUrlResponseFormatter: '=',
         remoteUrlErrorCallback: '=',
         remoteApiHandler: '=',
